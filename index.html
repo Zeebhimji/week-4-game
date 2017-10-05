@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Crsytal Collector</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<body>
+
+	<div id="random-number"></div>
+
+	<div id="ruby"><img src="assets/images/ruby.png" height="200px" width="200px"></div>
+	<div id="amethyst"><img src="assets/images/amethyst.png" height="200px" width="200px"></div>
+	<div id="tomato"><img src="assets/images/tomato.png" height="200px" width="200px"></div>
+	<div id="diamond"><img src="assets/images/diamond.png" height="200px" width="200px"></div>
+
+	<div id="wins">Your WINS Go Here!!</div>
+	<div id="losses">At least you havent LOSt yet!</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		
+		var random = Math.floor(Math.random() * 101) + 19;
+		console.log(random) 
+		$('#random-number').html('<h1>Your Goal this round is to collect a total of:<h2>' + random)
+
+		var ruby = Math.floor(Math.random() * 12) + 1;
+		console.log(ruby)
+		var amethyst = Math.floor(Math.random() * 12) + 1;
+		console.log(amethyst)
+		var tomato = Math.floor(Math.random() * 12) + 1;
+		console.log(tomato)
+		var diamond = Math.floor(Math.random() * 12) + 1;
+		console.log(diamond)
+
+		var totScore = 0 /*the sum of all clicks for each crstal*/
+		console.log(totScore)
+		var wins = 0
+		var losses = 0
+
+		$('#ruby').on('click', function(){
+			console.log(ruby);
+			$('#ruby').toggle(200).toggle(200);
+			totScore = totScore + ruby;
+			console.log(totScore);
+		});		
+
+		$('#amethyst').on('click', function(){
+			console.log(amethyst);
+			$('#amethyst').toggle(200).toggle(200);
+			totScore = totScore + amethyst;
+			console.log(totScore);
+		});
+
+		$('#tomato').on('click', function(){
+			console.log(tomato);
+			$('#tomato').toggle(200).toggle(200);
+			totScore = totScore + tomato;
+			console.log(totScore);
+		});
+
+		$('#diamond').on('click', function(){
+			console.log(diamond);
+			$('#diamond').toggle(200).toggle(200);
+			totScore = totScore + diamond;
+			console.log(totScore);
+		});
+
+/*		$(this).on('click', function(){
+			console.log(this);
+			$(this).toggle(200).toggle(200);
+			totScore = totScore + this;
+			console.log(totScore);
+		});*/
+
+
+
+		if (totScore == random) {
+			wins++;
+			$('#wins').html(wins);
+		} else if (totScore > random) {
+			losses++;
+		}
+		
+
+
+
+
+		$('#user-Score').html(ruby+amethyst+tomato+diamond);
+
+
+	});
+	</script>
+
+</body>
+</html>
